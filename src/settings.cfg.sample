@@ -1,0 +1,52 @@
+[DEFAULT]
+
+[Path]
+# Set full path to the application root directory.
+app_root = /Users/you/petoi-agent/src
+
+resources = ${Path:app_root}/resources
+
+[Petoi]
+# Set the port of your Petoi
+# Note: How listing ports is https://pythonhosted.org/pyserial/shortintro.html#listing-ports
+port = /dev/tty.BittleSPP-999999-Port
+
+[Automate]
+# Minute interval to start the action.
+# Note: It's picked random between act_interval_min to act_interval_max
+act_interval_min = 2
+act_interval_max = 5
+
+# The number of times to perform the action.
+act_times = 5
+
+# [Api]
+# Set your client id and client secret.
+# client_id = your_client_id
+# client_secret = your_client_secret
+
+# end_point_token = http://localhost:8000/robots/connect
+# end_point_action = http://localhost:3000/action
+
+# Interval seconds of api calling. (*Minimum 180)
+# **Note: If sets less than 180 seconds, suspending access during 10 minutes.**
+# heartbeat_interval = 180
+
+[Logging]
+# Available Log levels
+#   CRITICAL = 50
+#   ERROR = 40
+#   WARNING = 30
+#   INFO = 20
+#   DEBUG = 10
+#   NOTSET = 0
+loglevel = INFO
+
+loglevel_automate = INFO
+
+loglevel_training = INFO
+
+log_dir = ${Path:app_root}/logs
+filename = %DATE%.log
+format = %(asctime)s-[%(name)s][%(levelname)s] %(message)s
+datefmt = %Y-%m-%d %H:%M:%S
